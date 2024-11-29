@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerar Senha 2/2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        input {
+            padding: 10px;
+            margin: 20px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Você tem que responder certo pra conseguir o primeiro número (2/2)</h1>
+    <p>"Né não tia"</p>
+
+    <input type="text" id="inputWord" placeholder="Digite o nome dele..." />
+    <button onclick="checkWord()">Gerar</button>
+
+    <p id="errorMessage" class="hidden" style="color: red;">Krl viado, cê é mó burro. tenta dnv aí mn. (é tudo minúsculo)</p>
+    <p id="result" class="hidden"></p>
+
+    <script>
+        // Palavra secreta
+        const correctWord = "galego";  // Substitua por qualquer palavra que você escolher
+        const secretResult = "Você acertou! O primeiro número é 8.";  // Substitua pelo nome ou número que você escolher
+
+        function checkWord() {
+            const userInput = document.getElementById("inputWord").value;
+
+            if (userInput === correctWord) {
+                // Se a palavra estiver correta, mostre o nome ou número
+                document.getElementById("result").textContent = "BOUAA, " + secretResult;
+                document.getElementById("result").classList.remove("hidden");
+                document.getElementById("errorMessage").classList.add("hidden");
+            } else {
+                // Caso contrário, mostre uma mensagem de erro
+                document.getElementById("errorMessage").classList.remove("hidden");
+                document.getElementById("result").classList.add("hidden");
+            }
+        }
+    </script>
+
+</body>
+</html>
